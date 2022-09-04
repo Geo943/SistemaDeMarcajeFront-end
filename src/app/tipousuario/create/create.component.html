@@ -1,0 +1,36 @@
+<div>
+  <div class="d-flex justify-content-between">
+    <h4>Form customer</h4>
+    <a href="#" routerLink="/departamento/index" class="btn btn-primaryt"
+      >Back</a
+    >
+  </div>
+
+  <hr />
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="nombre_tipo">Tipo de usuario: </label>
+      <input
+        formControlName="nombre_tipo"
+        id="nombre_tipo"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['nombre_tipo'].touched && f['nombre_tipo'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="f['nombre_tipo'].errors && f['nombre_tipo'].errors['required']"
+        >
+          Se requiere el tipo de usuario.
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Marcación</h1>
+
+  <a href="#" routerLink="/empleado/index/" class="btn btn-success"
+    >Empleados</a
+  >
+
+  <table class="table table-dark table-sm">
+    <tr>
+      <th>ID EMPLEADO</th>
+      <th>Nombre y apellido</th>
+      <th>Marcaje</th>
+      <th>HORA</th>
+      <th>FECHA</th>
+    </tr>
+
+    <tr *ngFor="let control of controls">
+      <td>{{ control.id_empleado }}</td>
+      <td>{{ control.id_empleado }}</td>
+
+      <td>{{ control.tipo }}</td>
+      <td>{{ control.fecha }}</td>
+      <td>{{ control.hora }}</td>
+      <td></td>
+    </tr>
+  </table>
+</div>

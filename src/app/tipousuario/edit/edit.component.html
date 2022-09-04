@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Actualizar tipo de usuario</h1>
+
+  <a href="#" routerLink="/tipousuario/index" class="btn btn-success"
+    ><i class="fa-solid fa-angles-left"> Back</i></a
+  >
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="nombre_tipo">Nombre:</label>
+      <input
+        formControlName="nombre_tipo"
+        id="nombre_tipo"
+        type="text"
+        [(ngModel)]="tipousuario.nombre_tipo"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['nombre_tipo'].touched && f['nombre_tipo'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="f['nombre_tipo'].errors && f['nombre_tipo'].errors['required']"
+        >
+          El nombre es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Update
+    </button>
+  </form>
+</div>

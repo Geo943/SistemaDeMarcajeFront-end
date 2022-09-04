@@ -1,0 +1,148 @@
+<script
+  src="https://kit.fontawesome.com/561f10f14e.js"
+  crossorigin="anonymous"
+></script>
+<div class="container">
+  <h1>Actualizar datos de cliente</h1>
+
+  <a href="#" routerLink="/post/index" class="btn btn-success"
+    ><i class="fa-solid fa-angles-left"> Back</i></a
+  >
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input
+        formControlName="nombre"
+        id="nombre"
+        type="text"
+        [(ngModel)]="empleado.nombre"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['nombre'].touched && f['nombre'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">
+          El nombre es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido:</label>
+      <input
+        formControlName="apellido"
+        id="apellido"
+        type="text"
+        [(ngModel)]="empleado.apellido"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['apellido'].touched && f['apellido'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['apellido'].errors && f['apellido'].errors['required']">
+          El nombre es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dpi">DPI:</label>
+      <input
+        formControlName="dpi"
+        id="dpi"
+        type="number"
+        [(ngModel)]="empleado.dpi"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['dpi'].touched && f['dpi'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['dpi'].errors && f['dpi'].errors['required']">
+          El nombre es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="id_departamento">Departamento:</label>
+      <input
+        formControlName="id_departamento"
+        id="id_departamento"
+        type="number"
+        [(ngModel)]="empleado.id_departamento"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['id_departamento'].touched && f['id_departamento'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['id_departamento'].errors &&
+            f['id_departamento'].errors['required']
+          "
+        >
+          El nombre es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fecha_inicio_labores">Incio de labores:</label>
+      <input
+        formControlName="fecha_inicio_labores"
+        id="fecha_inicio_labores"
+        type="date"
+        [(ngModel)]="empleado.fecha_inicio_labores"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          f['fecha_inicio_labores'].touched && f['fecha_inicio_labores'].invalid
+        "
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['fecha_inicio_labores'].errors &&
+            f['fecha_inicio_labores'].errors['required']
+          "
+        >
+          El nombre es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fecha_nacimiento">Fecha nacimiento:</label>
+      <input
+        formControlName="fecha_nacimiento"
+        id="fecha_nacimiento"
+        type="date"
+        [(ngModel)]="empleado.fecha_nacimiento"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['fecha_nacimiento'].touched && f['fecha_nacimiento'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['fecha_nacimiento'].errors &&
+            f['fecha_nacimiento'].errors['required']
+          "
+        >
+          El nombre es obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Update
+    </button>
+  </form>
+</div>

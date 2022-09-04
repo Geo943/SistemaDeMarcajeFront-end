@@ -1,0 +1,56 @@
+<div>
+  <div class="d-flex justify-content-between">
+    <h4>Form customer</h4>
+    <a href="#" routerLink="/departamento/index" class="btn btn-primaryt"
+      >Back</a
+    >
+  </div>
+
+  <hr />
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="nombre_depto">Nombre: </label>
+      <input
+        formControlName="nombre_depto"
+        id="nombre_depto"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['nombre_depto'].touched && f['nombre_depto'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['nombre_depto'].errors && f['nombre_depto'].errors['required']
+          "
+        >
+          Se requiere nombre.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Descripcion: </label>
+      <input
+        formControlName="desc"
+        id="desc"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['desc'].touched && f['desc'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['desc'].errors && f['desc'].errors['required']">
+          Se requiere apellido.
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>
