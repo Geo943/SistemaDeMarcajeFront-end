@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class DepartamentoService {
 
-  private apiURL = "http://192.168.1.24:8000/api/departamentos/";
+  private apiURL = "http://127.0.0.1:8000/api/departamentos/";
 
   httpOptions = {
      headers: new HttpHeaders({

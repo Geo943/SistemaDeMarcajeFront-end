@@ -14,7 +14,7 @@ import { Empleado } from '../empleado/empleado';
 })
 export class ControlService {
     
-  private apiURL = "http://192.168.1.24:8000/api";
+  private apiURL = "http://127.0.0.1:8000/api";
     
   httpOptions = {
     headers: new HttpHeaders({

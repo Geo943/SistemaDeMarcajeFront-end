@@ -5,6 +5,7 @@
     <div class="form-group">
       <label for="id_empleado">Codigo de empleado: </label>
       <input
+       [(ngModel)]="user.id"
         formControlName="id_empleado"
         id="id_empleado"
         type="number"
@@ -23,7 +24,7 @@
     </div>
 
     <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
-      Submit
+      Marcar
     </button>
   </form>
 </div>
