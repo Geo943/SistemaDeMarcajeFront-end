@@ -3,6 +3,8 @@ import { TipousuarioService } from '../tipousuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Tipousuario } from '../tipousuario';
+import { AuthService } from 'src/app/login/auth.service';
+
 
 @Component({
   selector: 'app-edit',
@@ -18,7 +20,8 @@ export class EditComponent implements OnInit {
   constructor(
     public tipousuarioService: TipousuarioService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -46,5 +49,13 @@ export class EditComponent implements OnInit {
     })
   }
 
+  logout(){
+    console.log("Si llego hasta logout");
+    this.authService.singout().subscribe((res:any) =>{
+      localStorage.clear();
 
+      this.router.navigate(['login']);
+  
+    })
+  }
 }

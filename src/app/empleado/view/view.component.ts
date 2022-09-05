@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpleadoService } from '../empleado.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/login/auth.service';
+
 
 import { Empleado } from '../empleado';
 
@@ -16,7 +18,8 @@ export class ViewComponent implements OnInit {
   empleado!: Empleado;
 
   constructor(public empleadoService: EmpleadoService,
-    private route: ActivatedRoute,  private router: Router
+    private route: ActivatedRoute,  private router: Router,
+    private authService: AuthService
     ) { }
 
   ngOnInit(): void {
@@ -29,4 +32,13 @@ export class ViewComponent implements OnInit {
     
   }
 
+  logout(){
+    console.log("Si llego hasta logout");
+    this.authService.singout().subscribe((res:any) =>{
+      localStorage.clear();
+
+      this.router.navigate(['login']);
+  
+    })
+  }
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { TipousuarioService } from '../tipousuario.service';
 import { Tipousuario } from '../tipousuario';
+import { AuthService } from 'src/app/login/auth.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class IndexComponent implements OnInit {
   tipousuarios: Tipousuario[] = [];
 
   // constructor() { }
-  constructor(public tipousuarioService: TipousuarioService, private router: Router) { }
+  constructor(public tipousuarioService: TipousuarioService, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.tipousuarioService.getAll().subscribe((data: Tipousuario[])=>{
@@ -35,5 +36,15 @@ export class IndexComponent implements OnInit {
     this.router.navigateByUrl('tipousuario/' + id + '/edit');
   }
   
+  logout(){
+    console.log("Si llego hasta logout");
+    this.authService.singout().subscribe((res:any) =>{
+      localStorage.clear();
 
-}
+      this.router.navigate(['login']);
+  
+    })
+  }
+
+  
+}   

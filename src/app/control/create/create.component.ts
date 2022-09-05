@@ -3,6 +3,7 @@ import { ControlService } from '../control.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/login/auth.service';
 
 
 @Component({
@@ -19,22 +20,22 @@ export class CreateComponent implements OnInit {
 
   constructor(
     public controlService: ControlService,
-    private router: Router) { }
+    private router: Router, private authService: AuthService) { }
 
     
 
     ngOnInit(): void {
 
-      let date: Date = new Date();
-      let mes = date.getMonth() + 1;
-      var fecha = date.getFullYear() + "-" + mes + "-" + date.getDate();
+      // let date: Date = new Date();
+      // let mes = date.getMonth() + 1;
+      // var fecha = date.getFullYear() + "-" + mes + "-" + date.getDate();
 
-      var hora = date.getHours() + ":" + date.getHours() + ":" + date.getSeconds();
+      // var hora = date.getHours() + ":" + date.getHours() + ":" + date.getSeconds();
 
       this.form = new FormGroup({
-        id_empleado: new FormControl('', [Validators.required]),
-        fecha: new FormControl(fecha, [Validators.required]),
-        hora: new FormControl(hora, [Validators.required])
+        id_empleado: new FormControl('', [Validators.required])
+        // fecha: new FormControl(fecha, [Validators.required]),
+        // hora: new FormControl(hora, [Validators.required])
       });
     }
        
@@ -90,4 +91,13 @@ export class CreateComponent implements OnInit {
       
     }
 
+    logout(){
+      console.log("Si llego hasta logout");
+      this.authService.singout().subscribe((res:any) =>{
+        localStorage.clear();
+  
+        this.router.navigate(['login']);
+    
+      })
+    }
 }

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { DepartamentoService } from '../departamento.service';
 import { Departamento } from '../departamento';
+import { AuthService } from 'src/app/login/auth.service';
+
 
 @Component({
   selector: 'app-index',
@@ -14,7 +16,7 @@ export class IndexComponent implements OnInit {
   departamentos: Departamento[] = [];
 
   // constructor() { }
-  constructor(public departamentoService: DepartamentoService, private router: Router) { }
+  constructor(public departamentoService: DepartamentoService, private router: Router, private authService: AuthService,) { }
 
   ngOnInit(): void {
     this.departamentoService.getAll().subscribe((data: Departamento[])=>{
@@ -34,5 +36,14 @@ export class IndexComponent implements OnInit {
     this.router.navigateByUrl('departamento/' + id + '/edit');
   }
   
+  logout(){
+    console.log("Si llego hasta logout");
+    this.authService.singout().subscribe((res:any) =>{
+      localStorage.clear();
+
+      this.router.navigate(['login']);
+  
+    })
+  }
 
 }
