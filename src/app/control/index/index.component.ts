@@ -28,28 +28,12 @@ export class IndexComponent implements OnInit {
    * @return response()
    */
   ngOnInit(): void {
-    this.controlService.getAll().subscribe((data: Control[])=>{
+    this.controlService.getname().subscribe((data: any)=>{
       this.controls = data;
       console.log(this.controls);
-
-      for(let i in this.controls){
-        this.controls[i].id_empleado;
-        console.log(this.controls[i].id_empleado);
-      }
       
     })  
 
-    this.empleadoService.getAll().subscribe((data: Empleado[])=>{
-      this.empleados = data;
-      console.log(this.empleados);
-
-      for(let i in this.empleados){
-        this.empleados[i].id;
-        console.log(this.empleados[i].id);
-      }
-      
-    })
- 
   }
 
   /**

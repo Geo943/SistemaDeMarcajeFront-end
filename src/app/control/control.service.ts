@@ -14,7 +14,7 @@ import { Empleado } from '../empleado/empleado';
 })
 export class ControlService {
     
-  private apiURL = "http://192.168.1.24:8000/api";
+  private apiURL = "http://127.0.0.1:8000/api";
     
   httpOptions = {
     headers: new HttpHeaders({
@@ -25,14 +25,15 @@ export class ControlService {
   constructor(private httpClient: HttpClient) { }
 
   getname(){
-    return this.httpClient.get<Empleado[]>(this.apiURL + '/empleados/')
+    return this.httpClient.get<Control[]>(this.apiURL + '/marcacionsjoin/')
     .pipe(
       catchError(this.errorHandler)
     )
   }
     
   getAll(): Observable<Control[]> {
-    return this.httpClient.get<Control[]>(this.apiURL + '/marcacions/')
+   // return this.httpClient.get<Control[]>(this.apiURL + '/marcacions/')
+   return this.httpClient.get<Control[]>(this.apiURL + '/marcacionsjoin2/')
     .pipe(
       catchError(this.errorHandler) 
 

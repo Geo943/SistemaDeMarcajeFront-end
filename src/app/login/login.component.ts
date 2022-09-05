@@ -10,63 +10,102 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  user={
-    usuario:"2020",
-    pass:"123"
+  bandera: number | undefined;
+  user = {
+    usuario: "2020",
+    pass: "123456"
   }
+
 
   constructor(
     private authService: AuthService,
     private router: Router
-    ) { 
+  ) {
 
-    }
-    
+
+  }
+
 
 
   ngOnInit(): void {
   }
 
-  login(){
+
+
+  login() {
     console.log(this.user);
-    this.authService.singin(this.user).subscribe((res:any) =>{
+    this.authService.singin(this.user).subscribe((res: any) => {
       console.log(res);
-      localStorage.setItem('token',res.access_token);
+      localStorage.setItem('token', res.access_token);
       // this.router.navigate(['empleado']);
-      if(res.access_token ==null){
-        console.log('error en validacion token null geo')
+      if (res.access_token == null) {
+        console.log('error en validacion token null')
         this.errorlogin();
-      }else{
-        this.router.navigate(['/empleado/index/']);
+      } else {
+
+        //*************************************************************************/
+        this.authService.vperfil().subscribe((res: any) => {
+          //console.log(res);
+          if (res.id_tipo_usuario == 1) {
+            console.log("es Admin");
+            //admin
+            this.bandera = 1;
+          } else {
+            //user
+            console.log("es User");
+            this.bandera = 2
+          }
+          if (this.bandera == 1) {
+            console.log("entro a admin")
+            this.router.navigate(['/empleado/index/']);
+          } else {
+            console.log("entro a user")
+            this.router.navigate(['/control/create/']);
+          }
+          //console.log("esta es la bandera" + this.bandera);
+        })
+        //***************************************************** */
       }
-     
-      
     })
   }
-  
 
-  logout(){
+
+  logout() {
     console.log("Si llego hasta logout");
-    this.authService.singout().subscribe((res:any) =>{
+    this.authService.singout().subscribe((res: any) => {
       localStorage.clear();
-
       this.router.navigate(['login']);
-  
     })
   }
 
 
-  errorlogin(){
-        
+  errorlogin() {
     Swal.fire({
       position: 'top-end',
       icon: 'error',
-      title: 'credenciales incorrctas',
+      title: 'credenciales incorrectas',
       showConfirmButton: false,
       timer: 1000
     })
-    
   }
 
- 
+  //se consume el perfil para eterminar a donde se dirije
+  validaperfil() {
+    this.authService.vperfil().subscribe((res: any) => {
+      console.log(res);
+      if (res.id_tipo_usuario == 1) {
+        console.log("es Admin");
+        //admin
+        this.bandera = 1;
+      } else {
+        //user
+        console.log("es User");
+        this.bandera = 2
+      }
+      console.log("esta es la bandera" + this.bandera);
+
+    })
+  }
+
+
 }

@@ -1,6 +1,11 @@
 export interface Control {
-    id: number,
     id_empleado: number,
+    
+    id: number,
+    nombre:string,
+    apellido:string,
+
+    
     tipo: string;
     fecha: string,
     hora: string,

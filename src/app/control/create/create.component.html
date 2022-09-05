@@ -35,29 +35,15 @@
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-group">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button
-            class="btn btn-success"
-            type="submit"
-            [disabled]="!form.valid"
-          >
-            Marcar
-          </button>
-        </div>
-        <div>
-          <input
-            type="text"
-            class="form-control"
-            aria-describedby="basic-addon1"
-            formControlName="id_empleado"
-            id="id_empleado"
-            type="number"
-            style="width: 338px; height: 40px"
-          />
-        </div>
-      </div>
 
+      <label for="id_empleado">Codigo de empleado: </label>
+      <input
+       [(ngModel)]="user.id"
+        formControlName="id_empleado"
+        id="id_empleado"
+        type="number"
+        class="form-control"
+      />
       <div
         *ngIf="f['id_empleado'].touched && f['id_empleado'].invalid"
         class="alert alert-danger"
@@ -70,5 +56,8 @@
       </div>
     </div>
     <br />
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Marcar
+    </button>
   </form>
 </div>

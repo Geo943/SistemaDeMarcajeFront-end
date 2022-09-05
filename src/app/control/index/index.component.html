@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
@@ -39,10 +40,11 @@
       <th>Fecha</th>
       <th>HoRA</th>
     </tr>
-
+    
     <tr *ngFor="let control of controls">
       <td>{{ control.id_empleado }}</td>
-      <td>{{ control.id_empleado }}</td>
+      <td>{{ control.nombre +" "+control.apellido}}</td>
+      
 
       <td>{{ control.tipo }}</td>
       <td>{{ control.fecha }}</td>

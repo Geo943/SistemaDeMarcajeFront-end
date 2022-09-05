@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ControlService } from '../control.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
@@ -12,6 +12,8 @@ import { AuthService } from 'src/app/login/auth.service';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
+
+  user = {id: 20000}
 
   form!: FormGroup;
   
@@ -52,11 +54,17 @@ export class CreateComponent implements OnInit {
      * @return response()
      */
     submit(){
-           this.controlService.create(this.form.value).subscribe((res:any) => { 
-               this.ok();
+  
+        console.log(this.form.value);
+        if(this.form.value.id_empleado==20000){
+           this.error();
+        }else{
+          this.controlService.create(this.form.value).subscribe((res:any) => { 
+            console.log('Marcaje corecto!');
+            this.ok();
             this.router.navigateByUrl('control/create');
-          })
-
+       })
+      }      
     }
     
     ok(){
@@ -76,8 +84,9 @@ export class CreateComponent implements OnInit {
         position: 'top-end',
         icon: 'error',
         title: 'No existe usuario',
+        text: 'retire el codigo de ejemplo e Ingrese su Codigo',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1900
       })
       
     }
