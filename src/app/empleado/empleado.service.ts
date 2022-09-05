@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class EmpleadoService {
 
-  private apiURL = "http://192.168.1.24:8000/api";
+  private apiURL = "http://127.0.0.1:8000/api";
     
   httpOptions = {
     headers: new HttpHeaders({

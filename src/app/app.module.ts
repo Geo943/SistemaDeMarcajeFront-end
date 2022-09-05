@@ -19,6 +19,9 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms'
 import { TokenInterceptorService } from './services/token-interceptor.service';
 
+//tmer
+import { BnNgIdleService } from 'bn-ng-idle';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
   ],
   providers: [
     //Token Interceptor
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi:true}
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi:true},
+    //timer
+    BnNgIdleService
   ],
   bootstrap: [AppComponent]
 })
