@@ -4,7 +4,7 @@ IMG 1
 ![image](https://user-images.githubusercontent.com/70043963/188396446-0f0eeffb-10f9-4e57-83eb-b1a062e2cc13.png)
 
 IMG2
-![image](https://user-images.githubusercontent.com/70043963/188397360-a8064b7f-af71-4e27-9291-33416c39570a.png)
+![image](https://user-images.githubusercontent.com/70043963/188399179-830325aa-4a98-456a-9b5f-bf6a4e062e46.png)
 
 IMG3
 ![image](https://user-images.githubusercontent.com/70043963/188397449-51202638-6571-4e7a-ab10-37ce6923c85e.png)
