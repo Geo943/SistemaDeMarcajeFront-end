@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Marcación</h1>
+  <h1>Historial de Marcaje</h1>
 
   <a href="#" routerLink="/empleado/index/" class="btn btn-success"
     >Empleados</a
@@ -10,13 +10,14 @@
       <th>ID EMPLEADO</th>
       <th>Nombre y apellido</th>
       <th>Marcaje</th>
-      <th>HORA</th>
       <th>FECHA</th>
+      <th>HORA</th>
     </tr>
-
+    
     <tr *ngFor="let control of controls">
       <td>{{ control.id_empleado }}</td>
-      <td>{{ control.id_empleado }}</td>
+      <td>{{ control.nombre +" "+control.apellido}}</td>
+      
 
       <td>{{ control.tipo }}</td>
       <td>{{ control.fecha }}</td>

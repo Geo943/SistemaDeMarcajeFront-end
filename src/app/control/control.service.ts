@@ -25,14 +25,15 @@ export class ControlService {
   constructor(private httpClient: HttpClient) { }
 
   getname(){
-    return this.httpClient.get<Empleado[]>(this.apiURL + '/empleados/')
+    return this.httpClient.get<Control[]>(this.apiURL + '/marcacionsjoin/')
     .pipe(
       catchError(this.errorHandler)
     )
   }
     
   getAll(): Observable<Control[]> {
-    return this.httpClient.get<Control[]>(this.apiURL + '/marcacions/')
+   // return this.httpClient.get<Control[]>(this.apiURL + '/marcacions/')
+   return this.httpClient.get<Control[]>(this.apiURL + '/marcacionsjoin2/')
     .pipe(
       catchError(this.errorHandler) 
 
