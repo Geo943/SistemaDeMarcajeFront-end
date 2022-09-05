@@ -22,6 +22,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 //tmer
 import { BnNgIdleService } from 'bn-ng-idle';
 
+//url
+import { HashLocationStrategy,LocationStrategy } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { BnNgIdleService } from 'bn-ng-idle';
     //Token Interceptor
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi:true},
     //timer
-    BnNgIdleService
+    BnNgIdleService,
+    //rutas
+    {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
