@@ -9,6 +9,8 @@ import { ControlModule } from './control/control.module';
 import { EmpleadoModule } from './empleado/empleado.module';
 import { DepartamentoModule } from './departamento/departamento.module';
 import { TipousuarioModule } from './tipousuario/tipousuario.module';
+import { UsuarioModule } from './usuario/usuario.module';
+
 
 import { LoginComponent } from './login/login.component';
 
@@ -31,6 +33,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     DepartamentoModule,
     TipousuarioModule,
     HttpClientModule,
+    UsuarioModule,
     //modulo de forms
     FormsModule
     

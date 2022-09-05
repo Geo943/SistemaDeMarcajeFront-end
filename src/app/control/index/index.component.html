@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
@@ -8,7 +7,6 @@
       <a class="nav-item nav-link" [routerLink]="['/control/index']"
         >Historial de marcaje</a
       >
-      <a class="nav-item nav-link" [routerLink]="['/control/create']">Marcar</a>
       <a class="nav-item nav-link" [routerLink]="['/departamento/index']"
         >Departamentos</a
       >
@@ -40,11 +38,10 @@
       <th>Fecha</th>
       <th>HoRA</th>
     </tr>
-    
+
     <tr *ngFor="let control of controls">
       <td>{{ control.id_empleado }}</td>
-      <td>{{ control.nombre +" "+control.apellido}}</td>
-      
+      <td>{{ control.nombre + " " + control.apellido }}</td>
 
       <td>{{ control.tipo }}</td>
       <td>{{ control.fecha }}</td>

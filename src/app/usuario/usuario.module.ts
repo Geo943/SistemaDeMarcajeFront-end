@@ -7,6 +7,8 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { ViewComponent } from './view/view.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ViewComponent } from './view/view.component';
   ],
   imports: [
     CommonModule,
-    UsuarioRoutingModule
+    UsuarioRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UsuarioModule { }

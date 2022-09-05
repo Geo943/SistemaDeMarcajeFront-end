@@ -7,7 +7,6 @@
       <a class="nav-item nav-link" [routerLink]="['/control/index']"
         >Historial de marcaje</a
       >
-      <a class="nav-item nav-link" [routerLink]="['/control/create']">Marcar</a>
       <a class="nav-item nav-link" [routerLink]="['/departamento/index']"
         >Departamentos</a
       >
@@ -35,10 +34,9 @@
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-group">
-
       <label for="id_empleado">Codigo de empleado: </label>
       <input
-       [(ngModel)]="user.id"
+        [(ngModel)]="user.id"
         formControlName="id_empleado"
         id="id_empleado"
         type="number"

@@ -37,6 +37,10 @@ export class LoginComponent implements OnInit {
     this.authService.singin(this.user).subscribe((res: any) => {
       console.log(res);
       localStorage.setItem('token', res.access_token);
+
+      if(res.mensaje=="usuario no existe"){
+        this.errorloginuser();
+      }
       // this.router.navigate(['empleado']);
       if (res.access_token == null) {
         console.log('error en validacion token null')
@@ -84,6 +88,16 @@ export class LoginComponent implements OnInit {
       position: 'top-end',
       icon: 'error',
       title: 'credenciales incorrectas',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+
+  errorloginuser() {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'usuario no registrado',
       showConfirmButton: false,
       timer: 1000
     })

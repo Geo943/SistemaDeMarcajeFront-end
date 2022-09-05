@@ -49,7 +49,7 @@ export class CreateComponent implements OnInit {
     this.empleadoService.create(this.form.value).subscribe((res:any) => {
          console.log('Marcaje corecto!');
          this.ok();
-         this.router.navigateByUrl('control/create');
+         this.router.navigateByUrl('empleado/index');
     })
     
   }

@@ -17,6 +17,7 @@ export class IndexComponent implements OnInit {
   id: any;
   empleados: Empleado[] = [];
 
+
   // let datos = new LoginComponent().logout;
 
 
@@ -56,5 +57,7 @@ export class IndexComponent implements OnInit {
   
     })
   }
+
+
 
 }

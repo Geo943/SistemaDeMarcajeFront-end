@@ -20,6 +20,8 @@ export class AuthService {
     return this.http.post(this.apiURL+'logout',"");
   }
 
+  
+
   vperfil(){
     return this.http.post(this.apiURL+'perfil',"");
   }
