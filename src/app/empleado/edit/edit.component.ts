@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Empleado } from '../empleado';
 import { EmpleadoService } from '../empleado.service';
+import { AuthService } from 'src/app/login/auth.service';
+
 
 @Component({
   selector: 'app-edit',
@@ -17,7 +19,8 @@ export class EditComponent implements OnInit {
 
   constructor(  public empleadoService: EmpleadoService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private authService: AuthService) { }
 
  
 
@@ -70,6 +73,14 @@ export class EditComponent implements OnInit {
          this.router.navigateByUrl('empleado/index');
     })
   }
+  logout(){
+    console.log("Si llego hasta logout");
+    this.authService.singout().subscribe((res:any) =>{
+      localStorage.clear();
 
+      this.router.navigate(['login']);
+  
+    })
+  }
 
 }

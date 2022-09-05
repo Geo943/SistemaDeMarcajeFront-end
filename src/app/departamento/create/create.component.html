@@ -1,21 +1,47 @@
-<div>
-  <div class="d-flex justify-content-between">
-    <h4>Form customer</h4>
-    <a href="#" routerLink="/departamento/index" class="btn btn-primaryt"
-      >Back</a
-    >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" [routerLink]="['/empleado/index']"
+        >Empleados</a
+      >
+      <a class="nav-item nav-link" [routerLink]="['/control/index']"
+        >Historial de marcaje</a
+      >
+      <a class="nav-item nav-link" [routerLink]="['/control/create']">Marcar</a>
+      <a class="nav-item nav-link" [routerLink]="['/departamento/index']"
+        >Departamentos</a
+      >
+      <a
+        class="nav-item nav-link"
+        data-toggle="dropdown"
+        [routerLink]="['/tipousuario/index']"
+        >Tipos de usuario</a
+      >
+    </div>
   </div>
+  <button
+    (click)="logout()"
+    class="btn btn-outline-success"
+    style="float: right"
+  >
+    Logout
+  </button>
+</nav>
+<br /><br />
+<div id="heading" class="container" style="width: 570px; height: 40px">
+  <h1>Ingrese los datos del departamento</h1>
 
   <hr />
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-group">
-      <label for="nombre_depto">Nombre: </label>
+      <label id="heading" for="nombre_depto">Nombre: </label>
       <input
         formControlName="nombre_depto"
         id="nombre_depto"
         type="text"
         class="form-control"
+        style="width: 570px; height: 40px"
       />
       <div
         *ngIf="f['nombre_depto'].touched && f['nombre_depto'].invalid"
@@ -32,12 +58,13 @@
     </div>
 
     <div class="form-group">
-      <label for="desc">Descripcion: </label>
+      <label id="heading" for="desc">Descripcion: </label>
       <input
         formControlName="desc"
         id="desc"
         type="text"
         class="form-control"
+        style="width: 570px; height: 40px"
       />
       <div
         *ngIf="f['desc'].touched && f['desc'].invalid"
@@ -48,9 +75,10 @@
         </div>
       </div>
     </div>
+    <br />
 
-    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
-      Submit
+    <button class="btn btn-success" type="submit" [disabled]="!form.valid">
+      Guardar <i class="fa-solid fa-floppy-disk"></i>
     </button>
   </form>
 </div>

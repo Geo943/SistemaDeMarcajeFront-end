@@ -3,6 +3,7 @@ import { TipousuarioService } from '../tipousuario.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/login/auth.service';
 
 @Component({
   selector: 'app-create',
@@ -15,7 +16,8 @@ export class CreateComponent implements OnInit {
 
   constructor(
     public tipousuarioService: TipousuarioService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -52,5 +54,15 @@ export class CreateComponent implements OnInit {
       timer: 800
     })
     
+  }
+
+  logout(){
+    console.log("Si llego hasta logout");
+    this.authService.singout().subscribe((res:any) =>{
+      localStorage.clear();
+
+      this.router.navigate(['login']);
+  
+    })
   }
 }

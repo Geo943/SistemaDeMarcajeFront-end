@@ -1,15 +1,63 @@
-<div class="container">
-  <h1>Ingresar id para marcar</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" [routerLink]="['/empleado/index']"
+        >Empleados</a
+      >
+      <a class="nav-item nav-link" [routerLink]="['/control/index']"
+        >Historial de marcaje</a
+      >
+      <a class="nav-item nav-link" [routerLink]="['/control/create']">Marcar</a>
+      <a class="nav-item nav-link" [routerLink]="['/departamento/index']"
+        >Departamentos</a
+      >
+      <a
+        class="nav-item nav-link"
+        data-toggle="dropdown"
+        [routerLink]="['/tipousuario/index']"
+        >Tipos de usuario</a
+      >
+    </div>
+  </div>
+  <button
+    (click)="logout()"
+    class="btn btn-outline-success"
+    style="float: right"
+  >
+    Logout
+  </button>
+</nav>
+<br /><br />
+
+<div class="container" id="heading" style="width: 450px; height: 40px">
+  <h1>Ingrese id para marcar</h1>
+  <br />
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-group">
-      <label for="id_empleado">Codigo de empleado: </label>
-      <input
-        formControlName="id_empleado"
-        id="id_empleado"
-        type="number"
-        class="form-control"
-      />
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!form.valid"
+          >
+            Marcar
+          </button>
+        </div>
+        <div>
+          <input
+            type="text"
+            class="form-control"
+            aria-describedby="basic-addon1"
+            formControlName="id_empleado"
+            id="id_empleado"
+            type="number"
+            style="width: 338px; height: 40px"
+          />
+        </div>
+      </div>
+
       <div
         *ngIf="f['id_empleado'].touched && f['id_empleado'].invalid"
         class="alert alert-danger"
@@ -21,9 +69,6 @@
         </div>
       </div>
     </div>
-
-    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
-      Submit
-    </button>
+    <br />
   </form>
 </div>

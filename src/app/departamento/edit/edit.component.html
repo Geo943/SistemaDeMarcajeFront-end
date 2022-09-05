@@ -1,9 +1,35 @@
-<div class="container">
-  <h1>Actualizar datos de departamento</h1>
-
-  <a href="#" routerLink="/departamento/index" class="btn btn-success"
-    ><i class="fa-solid fa-angles-left"> Back</i></a
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" [routerLink]="['/empleado/index']"
+        >Empleados</a
+      >
+      <a class="nav-item nav-link" [routerLink]="['/control/index']"
+        >Historial de marcaje</a
+      >
+      <a class="nav-item nav-link" [routerLink]="['/control/create']">Marcar</a>
+      <a class="nav-item nav-link" [routerLink]="['/departamento/index']"
+        >Departamentos</a
+      >
+      <a
+        class="nav-item nav-link"
+        data-toggle="dropdown"
+        [routerLink]="['/tipousuario/index']"
+        >Tipos de usuario</a
+      >
+    </div>
+  </div>
+  <button
+    (click)="logout()"
+    class="btn btn-outline-success"
+    style="float: right"
   >
+    Logout
+  </button>
+</nav>
+<br /><br />
+<div id="heading" class="container" style="width: 570px; height: 40px">
+  <h1>Actualizar datos de departamento</h1>
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-group">
@@ -47,8 +73,8 @@
         </div>
       </div>
     </div>
-
-    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+    <br />
+    <button class="btn btn-success" type="submit" [disabled]="!form.valid">
       Update
     </button>
   </form>

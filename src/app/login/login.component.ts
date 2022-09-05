@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   user={
     usuario:"2020",
-    pass:"123456"
+    pass:"123"
   }
 
   constructor(

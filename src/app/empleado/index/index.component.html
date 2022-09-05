@@ -2,6 +2,7 @@
   src="https://kit.fontawesome.com/561f10f14e.js"
   crossorigin="anonymous"
 ></script>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
@@ -15,25 +16,28 @@
       <a class="nav-item nav-link" [routerLink]="['/departamento/index']"
         >Departamentos</a
       >
-      <a class="nav-item nav-link" [routerLink]="['/tipousuario/index']"
+      <a
+        class="nav-item nav-link"
+        data-toggle="dropdown"
+        [routerLink]="['/tipousuario/index']"
         >Tipos de usuario</a
       >
-      <a class="nav-item nav-link" [routerLink]="['/usuario/index']"
-        >Usuarios</a
-      >
-      <a class="nav-item nav-link" [routerLink]="['/usuario/index']"> </a>
-
-      <button style="content: left" (click)="logout()" class="btn btn-primary">
-        Logout
-      </button>
     </div>
   </div>
+  <button
+    (click)="logout()"
+    class="btn btn-outline-success"
+    style="float: right"
+  >
+    Logout
+  </button>
 </nav>
+<br /><br />
 
 <div class="container">
   <a href="#" routerLink="/empleado/create/" class="btn btn-success"
-    >Crear nuevo empleado <i class="fa-solid fa-circle-plus"></i
-  ></a>
+    >Crear nuevo empleado <i class="fa-solid fa-circle-plus"></i></a
+  ><br /><br />
 
   <table class="table table-dark table-sm">
     <tr>

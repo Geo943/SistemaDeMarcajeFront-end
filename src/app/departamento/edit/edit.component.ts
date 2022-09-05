@@ -3,6 +3,7 @@ import { DepartamentoService } from '../departamento.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Departamento } from '../departamento';
+import { AuthService } from 'src/app/login/auth.service';
 
 @Component({
   selector: 'app-edit',
@@ -18,7 +19,8 @@ export class EditComponent implements OnInit {
   constructor(
     public departamentoService: DepartamentoService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -48,4 +50,13 @@ export class EditComponent implements OnInit {
     })
   }
 
+  logout(){
+    console.log("Si llego hasta logout");
+    this.authService.singout().subscribe((res:any) =>{
+      localStorage.clear();
+
+      this.router.navigate(['login']);
+  
+    })
+  }
 }

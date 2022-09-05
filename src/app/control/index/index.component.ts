@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ControlService } from '../control.service';
-
+import { Router } from '@angular/router';
 
 import { Control } from '../control';
 import { EmpleadoService } from 'src/app/empleado/empleado.service';
 import { Empleado } from 'src/app/empleado/empleado';
+import { AuthService } from 'src/app/login/auth.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class IndexComponent implements OnInit {
   empleados: Empleado[] = [];
  
 
-  constructor(public controlService: ControlService, public empleadoService: EmpleadoService) { }
+  constructor(public controlService: ControlService,  private router: Router, private authService: AuthService, public empleadoService: EmpleadoService) { }
 
   /**
    * Write code on Method
@@ -76,4 +77,13 @@ export class IndexComponent implements OnInit {
   //   })
   // }
 
+  logout(){
+    console.log("Si llego hasta logout");
+    this.authService.singout().subscribe((res:any) =>{
+      localStorage.clear();
+
+      this.router.navigate(['login']);
+  
+    })
+  }
 }

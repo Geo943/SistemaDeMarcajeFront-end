@@ -1,7 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" [routerLink]="['/empleado/index']"
+        >Empleados</a
+      >
+      <a class="nav-item nav-link" [routerLink]="['/control/index']"
+        >Historial de marcaje</a
+      >
+      <a class="nav-item nav-link" [routerLink]="['/control/create']">Marcar</a>
+      <a class="nav-item nav-link" [routerLink]="['/departamento/index']"
+        >Departamentos</a
+      >
+      <a
+        class="nav-item nav-link"
+        data-toggle="dropdown"
+        [routerLink]="['/tipousuario/index']"
+        >Tipos de usuario</a
+      >
+    </div>
+  </div>
+  <button
+    (click)="logout()"
+    class="btn btn-outline-success"
+    style="float: right"
+  >
+    Logout
+  </button>
+</nav>
+<br /><br />
 <div class="container">
   <a href="#" routerLink="/tipousuario/create/" class="btn btn-success"
     >Crear nuevo tipo de usuario <i class="fa-solid fa-circle-plus"></i></a
-  ><br />
+  ><br /><br />
 
   <table class="table table-dark table-sm">
     <tr>

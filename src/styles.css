@@ -107,3 +107,9 @@ body {
   border-color: #05a;
 } 
 
+#heading { color: #ffffff; }
+
+.box {
+  border: 10px;
+}
+  
