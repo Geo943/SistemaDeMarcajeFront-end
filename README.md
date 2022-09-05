@@ -1,6 +1,10 @@
 # SistemaDeMarcajeFront-end
 Pantallasos de funcionamiento general
+
+
 IMG 1
+
+
 ![image](https://user-images.githubusercontent.com/70043963/188396446-0f0eeffb-10f9-4e57-83eb-b1a062e2cc13.png)
 
 IMG2
